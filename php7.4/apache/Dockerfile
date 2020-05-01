@@ -21,6 +21,7 @@ RUN set -ex; \
 		libmagickwand-dev \
 		libpng-dev \
 		libzip-dev \
+		webp \
 	; \
 	\
 	docker-php-ext-configure gd --with-freetype --with-jpeg; \
@@ -34,6 +35,8 @@ RUN set -ex; \
 	; \
 	pecl install imagick-3.4.4; \
 	docker-php-ext-enable imagick; \
+	pecl install vips; \
+	docker-php-ext-enable vips; \
 	\
 # reset apt-mark's "manual" list so that "purge --auto-remove" will remove all build dependencies
 	apt-mark auto '.*' > /dev/null; \
