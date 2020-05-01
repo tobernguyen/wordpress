@@ -22,6 +22,7 @@ RUN set -ex; \
 		libpng-dev \
 		libzip-dev \
 		webp \
+		libvips-dev \
 	; \
 	\
 	docker-php-ext-configure gd --with-freetype --with-jpeg; \
